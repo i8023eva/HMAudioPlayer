@@ -47,15 +47,38 @@
 
 #pragma mark - 三个按钮的点击监听
 - (IBAction)previous {
-    
+    //重置页面
+    [self resetPlayingMusic];
+    //当前播放音乐
+    [EVAMusicPlayTool setPlayingMusic:[EVAMusicPlayTool previouesMusic]];
+    //播放
+    [self startPlayMusic];
 }
 
 - (IBAction)next {
-    
+    //重置页面
+    [self resetPlayingMusic];
+    //当前播放音乐
+    [EVAMusicPlayTool setPlayingMusic:[EVAMusicPlayTool nextMusic]];
+    //播放
+    [self startPlayMusic];
 }
 
 - (IBAction)playOrPause {
-    
+    if (self.playOrPauseButton.selected) {//选中状态就是在播放, 显示的是暂停 点击之后显示播放, 暂停音乐
+        self.playOrPauseButton.selected = NO;
+        
+        [EVAAudioTool pauseMusicWithFilename:self.playingMusic.filename];
+    }else {
+        self.playOrPauseButton.selected = YES;
+        
+//        [EVAAudioTool playMusicWithFilename:self.playingMusic.filename];
+//        /**
+//         *  开启定时器
+//         */
+//        [self addProgressTimer];
+        [self startPlayMusic];
+    }
 }
 
 
@@ -118,12 +141,23 @@
 }
 
 -(void) startPlayMusic {
+    
+    self.playOrPauseButton.selected = YES;
+    
     HMMusic *music = [EVAMusicPlayTool musicOfPlaying];
     /**
      *  音乐播放时创建播放器
      */
     self.player = [EVAAudioTool playMusicWithFilename:music.filename];
-    [self addProgressTimer];
+    
+    /**
+     *  ,暂停之后, 点击播放判断当前音乐
+     */
+    if (self.playingMusic == [EVAMusicPlayTool musicOfPlaying]) {
+        [self addProgressTimer];
+        return;
+    }
+
     //保存当前正在播放的音乐
     self.playingMusic = [EVAMusicPlayTool musicOfPlaying];
     
@@ -134,6 +168,9 @@
      *  duration得到的时间是秒, 需要格式化
      */
     self.durationLabel.text = [self stringWithTimeInterval:self.player.duration];
+    
+    [self addProgressTimer];
+
 }
 
 -(NSString *) stringWithTimeInterval: (NSTimeInterval) interval {
@@ -227,7 +264,12 @@
         
         self.player.currentTime = time;
 
-        [self updataProgressTimer];
+        if (self.player.playing) {
+            /**
+             *  如果是暂停状态, 不需要开启定时器, 但是需要在再次开始时启动定时器
+             */
+            [self addProgressTimer];
+        }
     }
 
 }

@@ -30,6 +30,15 @@ static NSMutableDictionary *_players;
     return _players;
 }
 
++ (void)initialize {
+    //创建音频会话
+    AVAudioSession *session = [[AVAudioSession alloc]init];
+    //设置会话类型
+    [session setCategory:AVAudioSessionCategoryPlayback error:NULL];
+    //激活回话
+    [session setActive:YES error:NULL];
+}
+
 +(void) playAudioWithFileName:(NSString *) fileName {
     if (fileName == nil) {
         return;
