@@ -11,7 +11,7 @@
 #import "EVAAudioTool.h"
 #import "EVAMusicPlayTool.h"
 
-@interface MusicPlayController ()
+@interface MusicPlayController ()<AVAudioPlayerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *songLabel;
 @property (weak, nonatomic) IBOutlet UILabel *singerLabel;
 //歌曲背景
@@ -149,7 +149,7 @@
      *  音乐播放时创建播放器
      */
     self.player = [EVAAudioTool playMusicWithFilename:music.filename];
-    
+    self.player.delegate = self;
     /**
      *  ,暂停之后, 点击播放判断当前音乐
      */
@@ -171,6 +171,32 @@
     
     [self addProgressTimer];
 
+}
+
+#pragma mark - AVAudioPlayerDelegate
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    /**
+     *  播放完, 自动播放下一首歌
+     */
+    [self next];
+}
+
+-(void)audioPlayerBeginInterruption:(AVAudioPlayer *)player {
+    /**
+     *  播放器被打断时调用 [电话]
+     *///暂停
+    if (self.player.playing) {
+        [EVAAudioTool pauseMusicWithFilename:self.playingMusic.filename];
+    }
+}
+
+-(void)audioPlayerEndInterruption:(AVAudioPlayer *)player {
+    /**
+     *  播放器打断结束
+     *///继续
+    if (self.player.playing) {
+        [self startPlayMusic];
+    }
 }
 
 -(NSString *) stringWithTimeInterval: (NSTimeInterval) interval {
