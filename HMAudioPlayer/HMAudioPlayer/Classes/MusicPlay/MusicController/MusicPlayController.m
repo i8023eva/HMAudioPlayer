@@ -264,12 +264,14 @@
         self.slider.x = 0;
     } else if (self.slider.x > sliderMaxX) {
         self.slider.x = sliderMaxX;
+        [self next];
     }
     //这句一定要在矫正之后
-    self.progressView.width = self.slider.x;
+    self.progressView.width = self.slider.centerX;
     
+#warning 总进度条是减去 slider 长度的, CGFloat progress = self.slider.x / self.slider.superview.width;  是错的
     //更新音乐进度, point已经清0, 所以使用当前 slider 的位置
-    CGFloat progress = self.slider.x / self.slider.superview.width;
+    CGFloat progress = self.slider.x /  sliderMaxX;
     NSTimeInterval time = progress * self.player.duration;
     
     [self.slider setTitle:[self stringWithTimeInterval:time] forState:UIControlStateNormal];
