@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *singerLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 
+@property (nonatomic, strong) HMMusic *playingMusic;
+
 @end
 
 @implementation MusicPlayController
@@ -26,6 +28,13 @@
 }
 
 -(void) show {
+    /**
+     *  切换歌曲时, 重置播放页面信息
+     */
+    if (self.playingMusic != [EVAMusicPlayTool musicOfPlaying]) {
+        [self resetPlayingMusic];
+    }
+    
     //设置为主窗口
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     self.view.frame = window.bounds;
@@ -35,7 +44,7 @@
     window.userInteractionEnabled = NO;//禁用交互, 防止用户多次点击, 造成此方法重复执行
     
     self.view.y = window.height;
-    [UIView animateWithDuration:1.5 animations:^{
+    [UIView animateWithDuration:1.0 animations:^{
         self.view.y = 0;
     } completion:^(BOOL finished) {
         window.userInteractionEnabled = YES;
@@ -43,6 +52,14 @@
         //动画执行完, 开始播放音乐
         [self startPlayMusic];
     }];
+}
+
+-(void) resetPlayingMusic {
+    self.iconImageView.image = [UIImage imageNamed:@"play_cover_pic_bg"];
+    self.singerLabel.text = nil;
+    self.songLabel.text = nil;
+    
+    [EVAAudioTool stopMusicWithFilename:self.playingMusic.filename];//这里传入的是文件名, 不是歌曲名
 }
 
 -(void) startPlayMusic {
@@ -53,13 +70,15 @@
     self.songLabel.text = music.name;
     
     [EVAAudioTool playMusicWithFilename:music.filename];
+    //保存当前正在播放的音乐
+    self.playingMusic = [EVAMusicPlayTool musicOfPlaying];
 }
 
 - (IBAction)didClickForExit:(UIButton *)sender {
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     window.userInteractionEnabled = NO;
     
-    [UIView animateWithDuration:1.6 animations:^{
+    [UIView animateWithDuration:1.0 animations:^{
         self.view.y = window.height;
     } completion:^(BOOL finished) {
         //视图隐藏之后系统不会在进行其他操作
