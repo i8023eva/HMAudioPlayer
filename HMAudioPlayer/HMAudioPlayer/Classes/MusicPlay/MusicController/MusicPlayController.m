@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *slider;
 //显示拖拽进度
 @property (weak, nonatomic) IBOutlet UIButton *currentTimeView;
+//控制播放暂停
+@property (weak, nonatomic) IBOutlet UIButton *playOrPauseButton;
 
 //获取播放器
 @property (nonatomic, strong) AVAudioPlayer *player;
@@ -42,6 +44,23 @@
     // Do any additional setup after loading the view.
     self.currentTimeView.layer.cornerRadius = 9.0;
 }
+
+#pragma mark - 三个按钮的点击监听
+- (IBAction)previous {
+    
+}
+
+- (IBAction)next {
+    
+}
+
+- (IBAction)playOrPause {
+    
+}
+
+
+
+
 
 #pragma mark - 点击隐藏播放页面
 - (IBAction)didClickForExit:(UIButton *)sender {
@@ -172,6 +191,18 @@
      */
     [sender setTranslation:CGPointZero inView:sender.view];
     self.slider.x += point.x;
+
+#warning 
+    /**
+     *  位置矫正, 滑块移出边界蓝色进度条会出错
+     */
+    CGFloat sliderMaxX = self.view.width - self.slider.width;
+    if (self.slider.x < 0) {
+        self.slider.x = 0;
+    } else if (self.slider.x > sliderMaxX) {
+        self.slider.x = sliderMaxX;
+    }
+    //这句一定要在矫正之后
     self.progressView.width = self.slider.x;
     
     //更新音乐进度, point已经清0, 所以使用当前 slider 的位置
