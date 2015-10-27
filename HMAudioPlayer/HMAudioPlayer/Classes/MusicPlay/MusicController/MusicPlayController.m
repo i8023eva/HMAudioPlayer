@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UIView *progressView;
 //滑块
 @property (weak, nonatomic) IBOutlet UIButton *slider;
+//显示拖拽进度
+@property (weak, nonatomic) IBOutlet UIButton *currentTimeView;
 
 //获取播放器
 @property (nonatomic, strong) AVAudioPlayer *player;
@@ -38,6 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.currentTimeView.layer.cornerRadius = 9.0;
 }
 
 #pragma mark - 点击隐藏播放页面
@@ -145,15 +148,57 @@
     [self.slider setTitle:[self stringWithTimeInterval:self.player.currentTime] forState:UIControlStateNormal];
 }
 
-- (IBAction)tapProgressView:(UITapGestureRecognizer *)sender {
+#pragma mark - 单击进度条
+- (IBAction) onProgressViewByTap: (UITapGestureRecognizer *)sender {
     //获取当前点击的位置
     CGPoint point = [sender locationInView:sender.view];
-    self.slider.x = point.x;
+    
+//    self.slider.x = point.x;
+//    self.progressView.width = self.slider.center.x;
     /**
      *  实现点击进度条更改音乐进度
      */
     CGFloat progress = point.x / sender.view.width;
     self.player.currentTime = progress * self.player.duration;
+    
+    [self updataProgressTimer];
+}
+
+#pragma mark - 拖拽滑块
+- (IBAction) onSliderByPan: (UIPanGestureRecognizer *)sender {
+    CGPoint point = [sender translationInView:sender.view];
+    /**
+     *  使滑动到的当前位置为初始位置, 不累加
+     */
+    [sender setTranslation:CGPointZero inView:sender.view];
+    self.slider.x += point.x;
+    self.progressView.width = self.slider.x;
+    
+    //更新音乐进度, point已经清0, 所以使用当前 slider 的位置
+    CGFloat progress = self.slider.x / self.slider.superview.width;
+    NSTimeInterval time = progress * self.player.duration;
+    
+    [self.slider setTitle:[self stringWithTimeInterval:time] forState:UIControlStateNormal];
+    
+    [self.currentTimeView setTitle:[self stringWithTimeInterval:time] forState:UIControlStateNormal];
+    self.currentTimeView.centerX = self.slider.centerX;
+    self.currentTimeView.y = self.currentTimeView.superview.height - self.currentTimeView.height - 10;
+    
+    /**
+     *  判断监听的状态
+     */
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        self.currentTimeView.hidden = NO;
+        
+        [self removeProgressTimer];
+    } else if (sender.state == UIGestureRecognizerStateEnded){
+        self.currentTimeView.hidden = YES;
+        
+        self.player.currentTime = time;
+
+        [self updataProgressTimer];
+    }
+
 }
 
 -(void) removeProgressTimer {

@@ -85,7 +85,6 @@ static NSMutableDictionary *_players;
     
     // 2.判断播放器是否为nil
     if (!player) {
-        NSLog(@"创建新的播放器");
         
         // 2.1根据文件名称加载音效URL
         NSURL *url = [[NSBundle mainBundle] URLForResource:filename withExtension:nil];
@@ -105,8 +104,8 @@ static NSMutableDictionary *_players;
         }
 #warning 
         // 允许快进
-        player.enableRate = YES;
-        player.rate = 3;
+//        player.enableRate = YES;
+//        player.rate = 3;
         
         // 2.5将播放器添加到字典中
         [self players][filename] = player;

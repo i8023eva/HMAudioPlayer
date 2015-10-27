@@ -20,7 +20,6 @@
 		14190A8A1BDF66F400B2FFA9 /* 120125029.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 14190A811BDF66F400B2FFA9 /* 120125029.mp3 */; settings = {ASSET_TAGS = (); }; };
 		14F8D7AD1BDF18EB00B05AA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F8D7AB1BDF18EB00B05AA1 /* Main.storyboard */; };
 		14F8D7AF1BDF18EB00B05AA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14F8D7AE1BDF18EB00B05AA1 /* Assets.xcassets */; };
-		14F8D7B21BDF18EB00B05AA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F8D7B01BDF18EB00B05AA1 /* LaunchScreen.storyboard */; };
 		14F8D7BD1BDF18EB00B05AA1 /* HMAudioPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F8D7BC1BDF18EB00B05AA1 /* HMAudioPlayerTests.m */; };
 		14F8D7C81BDF18EB00B05AA1 /* HMAudioPlayerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F8D7C71BDF18EB00B05AA1 /* HMAudioPlayerUITests.m */; };
 		14F8D83D1BDF249600B05AA1 /* MusicListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F8D82E1BDF249600B05AA1 /* MusicListController.m */; settings = {ASSET_TAGS = (); }; };
@@ -107,7 +106,6 @@
 		14F8D79F1BDF18EB00B05AA1 /* HMAudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMAudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14F8D7AC1BDF18EB00B05AA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14F8D7AE1BDF18EB00B05AA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		14F8D7B11BDF18EB00B05AA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14F8D7B31BDF18EB00B05AA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14F8D7B81BDF18EB00B05AA1 /* HMAudioPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HMAudioPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14F8D7BC1BDF18EB00B05AA1 /* HMAudioPlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMAudioPlayerTests.m; sourceTree = "<group>"; };
@@ -248,7 +246,6 @@
 			children = (
 				14F8D7AE1BDF18EB00B05AA1 /* Assets.xcassets */,
 				14F8D7AB1BDF18EB00B05AA1 /* Main.storyboard */,
-				14F8D7B01BDF18EB00B05AA1 /* LaunchScreen.storyboard */,
 				14F8D7B31BDF18EB00B05AA1 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -618,7 +615,6 @@
 				14F8D8B41BDF26C100B05AA1 /* Musics.plist in Resources */,
 				14F8D8A11BDF26C100B05AA1 /* zxy_icon.jpg in Resources */,
 				14F8D8961BDF26C100B05AA1 /* jay.jpg in Resources */,
-				14F8D7B21BDF18EB00B05AA1 /* LaunchScreen.storyboard in Resources */,
 				14190A831BDF66F400B2FFA9 /* 255319.mp3 in Resources */,
 				14190A881BDF66F400B2FFA9 /* 12309111.mp3 in Resources */,
 				14F8D8921BDF26C100B05AA1 /* dzq.jpg in Resources */,
@@ -731,14 +727,6 @@
 				14F8D7AC1BDF18EB00B05AA1 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		14F8D7B01BDF18EB00B05AA1 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				14F8D7B11BDF18EB00B05AA1 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
