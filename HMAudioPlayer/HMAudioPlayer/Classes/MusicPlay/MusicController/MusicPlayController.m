@@ -41,8 +41,18 @@
         window.userInteractionEnabled = YES;
         
         //动画执行完, 开始播放音乐
-        [EVAAudioTool playMusicWithFilename:[EVAMusicPlayTool musicOfPlaying].filename];
+        [self startPlayMusic];
     }];
+}
+
+-(void) startPlayMusic {
+    HMMusic *music = [EVAMusicPlayTool musicOfPlaying];
+    
+    self.iconImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:music.icon ofType:nil]];
+    self.singerLabel.text = music.singer;
+    self.songLabel.text = music.name;
+    
+    [EVAAudioTool playMusicWithFilename:music.filename];
 }
 
 - (IBAction)didClickForExit:(UIButton *)sender {
