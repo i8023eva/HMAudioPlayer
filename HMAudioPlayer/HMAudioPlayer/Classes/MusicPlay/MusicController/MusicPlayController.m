@@ -14,7 +14,13 @@
 @interface MusicPlayController ()
 @property (weak, nonatomic) IBOutlet UILabel *songLabel;
 @property (weak, nonatomic) IBOutlet UILabel *singerLabel;
+//歌曲背景
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+//歌曲时长
+@property (weak, nonatomic) IBOutlet UILabel *durationLabel;
+
+//获取播放器
+@property (nonatomic, strong) AVAudioPlayer *player;
 
 @property (nonatomic, strong) HMMusic *playingMusic;
 
@@ -25,6 +31,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (IBAction)didClickForExit:(UIButton *)sender {
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    window.userInteractionEnabled = NO;
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        self.view.y = window.height;
+    } completion:^(BOOL finished) {
+        //视图隐藏之后系统不会在进行其他操作
+        self.view.hidden = YES;
+        
+        window.userInteractionEnabled = YES;
+    }];
 }
 
 -(void) show {
@@ -64,28 +84,27 @@
 
 -(void) startPlayMusic {
     HMMusic *music = [EVAMusicPlayTool musicOfPlaying];
+    /**
+     *  音乐播放时创建播放器
+     */
+    self.player = [EVAAudioTool playMusicWithFilename:music.filename];
+    //保存当前正在播放的音乐
+    self.playingMusic = [EVAMusicPlayTool musicOfPlaying];
     
     self.iconImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:music.icon ofType:nil]];
     self.singerLabel.text = music.singer;
     self.songLabel.text = music.name;
-    
-    [EVAAudioTool playMusicWithFilename:music.filename];
-    //保存当前正在播放的音乐
-    self.playingMusic = [EVAMusicPlayTool musicOfPlaying];
+    /**
+     *  duration得到的时间是秒, 需要格式化
+     */
+    self.durationLabel.text = [self stringWithTimeInterval:self.player.duration];
 }
 
-- (IBAction)didClickForExit:(UIButton *)sender {
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    window.userInteractionEnabled = NO;
+-(NSString *) stringWithTimeInterval: (NSTimeInterval) interval {
+    int m = interval / 60;
+    int s = (int)interval % 60;
     
-    [UIView animateWithDuration:1.0 animations:^{
-        self.view.y = window.height;
-    } completion:^(BOOL finished) {
-        //视图隐藏之后系统不会在进行其他操作
-        self.view.hidden = YES;
-        
-        window.userInteractionEnabled = YES;
-    }];
+    return [NSString stringWithFormat:@"%d: %d", m, s];
 }
 
 - (void)didReceiveMemoryWarning {
