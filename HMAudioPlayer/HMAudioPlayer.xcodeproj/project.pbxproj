@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14190A751BDF5A3A00B2FFA9 /* EVAMusicPlayTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 14190A741BDF5A3A00B2FFA9 /* EVAMusicPlayTool.m */; settings = {ASSET_TAGS = (); }; };
+		14190A781BDF64BB00B2FFA9 /* EVAAudioTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 14190A771BDF64BB00B2FFA9 /* EVAAudioTool.m */; settings = {ASSET_TAGS = (); }; };
+		14190A821BDF66F400B2FFA9 /* 235319.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 14190A791BDF66F400B2FFA9 /* 235319.mp3 */; settings = {ASSET_TAGS = (); }; };
+		14190A831BDF66F400B2FFA9 /* 255319.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 14190A7A1BDF66F400B2FFA9 /* 255319.mp3 */; settings = {ASSET_TAGS = (); }; };
+		14190A841BDF66F400B2FFA9 /* 309769.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 14190A7B1BDF66F400B2FFA9 /* 309769.mp3 */; settings = {ASSET_TAGS = (); }; };
+		14190A851BDF66F400B2FFA9 /* 339744.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 14190A7C1BDF66F400B2FFA9 /* 339744.mp3 */; settings = {ASSET_TAGS = (); }; };
+		14190A861BDF66F400B2FFA9 /* 10405520.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 14190A7D1BDF66F400B2FFA9 /* 10405520.mp3 */; settings = {ASSET_TAGS = (); }; };
+		14190A871BDF66F400B2FFA9 /* 10736444.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 14190A7E1BDF66F400B2FFA9 /* 10736444.mp3 */; settings = {ASSET_TAGS = (); }; };
+		14190A881BDF66F400B2FFA9 /* 12309111.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 14190A7F1BDF66F400B2FFA9 /* 12309111.mp3 */; settings = {ASSET_TAGS = (); }; };
+		14190A891BDF66F400B2FFA9 /* 14945107.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 14190A801BDF66F400B2FFA9 /* 14945107.mp3 */; settings = {ASSET_TAGS = (); }; };
+		14190A8A1BDF66F400B2FFA9 /* 120125029.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 14190A811BDF66F400B2FFA9 /* 120125029.mp3 */; settings = {ASSET_TAGS = (); }; };
 		14F8D7AD1BDF18EB00B05AA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F8D7AB1BDF18EB00B05AA1 /* Main.storyboard */; };
 		14F8D7AF1BDF18EB00B05AA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14F8D7AE1BDF18EB00B05AA1 /* Assets.xcassets */; };
 		14F8D7B21BDF18EB00B05AA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F8D7B01BDF18EB00B05AA1 /* LaunchScreen.storyboard */; };
@@ -80,6 +91,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14190A731BDF5A3A00B2FFA9 /* EVAMusicPlayTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVAMusicPlayTool.h; sourceTree = "<group>"; };
+		14190A741BDF5A3A00B2FFA9 /* EVAMusicPlayTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVAMusicPlayTool.m; sourceTree = "<group>"; };
+		14190A761BDF64BB00B2FFA9 /* EVAAudioTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVAAudioTool.h; sourceTree = "<group>"; };
+		14190A771BDF64BB00B2FFA9 /* EVAAudioTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVAAudioTool.m; sourceTree = "<group>"; };
+		14190A791BDF66F400B2FFA9 /* 235319.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 235319.mp3; sourceTree = "<group>"; };
+		14190A7A1BDF66F400B2FFA9 /* 255319.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 255319.mp3; sourceTree = "<group>"; };
+		14190A7B1BDF66F400B2FFA9 /* 309769.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 309769.mp3; sourceTree = "<group>"; };
+		14190A7C1BDF66F400B2FFA9 /* 339744.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 339744.mp3; sourceTree = "<group>"; };
+		14190A7D1BDF66F400B2FFA9 /* 10405520.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 10405520.mp3; sourceTree = "<group>"; };
+		14190A7E1BDF66F400B2FFA9 /* 10736444.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 10736444.mp3; sourceTree = "<group>"; };
+		14190A7F1BDF66F400B2FFA9 /* 12309111.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 12309111.mp3; sourceTree = "<group>"; };
+		14190A801BDF66F400B2FFA9 /* 14945107.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 14945107.mp3; sourceTree = "<group>"; };
+		14190A811BDF66F400B2FFA9 /* 120125029.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 120125029.mp3; sourceTree = "<group>"; };
 		14F8D79F1BDF18EB00B05AA1 /* HMAudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMAudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14F8D7AC1BDF18EB00B05AA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14F8D7AE1BDF18EB00B05AA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -336,6 +360,10 @@
 		14F8D83C1BDF249600B05AA1 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				14190A761BDF64BB00B2FFA9 /* EVAAudioTool.h */,
+				14190A771BDF64BB00B2FFA9 /* EVAAudioTool.m */,
+				14190A731BDF5A3A00B2FFA9 /* EVAMusicPlayTool.h */,
+				14190A741BDF5A3A00B2FFA9 /* EVAMusicPlayTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -423,6 +451,15 @@
 		14F8D8851BDF26C100B05AA1 /* MP3s */ = {
 			isa = PBXGroup;
 			children = (
+				14190A791BDF66F400B2FFA9 /* 235319.mp3 */,
+				14190A7A1BDF66F400B2FFA9 /* 255319.mp3 */,
+				14190A7B1BDF66F400B2FFA9 /* 309769.mp3 */,
+				14190A7C1BDF66F400B2FFA9 /* 339744.mp3 */,
+				14190A7D1BDF66F400B2FFA9 /* 10405520.mp3 */,
+				14190A7E1BDF66F400B2FFA9 /* 10736444.mp3 */,
+				14190A7F1BDF66F400B2FFA9 /* 12309111.mp3 */,
+				14190A801BDF66F400B2FFA9 /* 14945107.mp3 */,
+				14190A811BDF66F400B2FFA9 /* 120125029.mp3 */,
 			);
 			path = MP3s;
 			sourceTree = "<group>";
@@ -568,17 +605,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				14F8D8A91BDF26C100B05AA1 /* 309769.lrc in Resources */,
+				14190A841BDF66F400B2FFA9 /* 309769.mp3 in Resources */,
+				14190A851BDF66F400B2FFA9 /* 339744.mp3 in Resources */,
+				14190A861BDF66F400B2FFA9 /* 10405520.mp3 in Resources */,
 				14F8D8991BDF26C100B05AA1 /* jj_icon.png in Resources */,
 				14F8D8971BDF26C100B05AA1 /* jay_icon.png in Resources */,
 				14F8D8A31BDF26C100B05AA1 /* 10736444.lrc in Resources */,
 				14F8D89D1BDF26C100B05AA1 /* nanquan_icon.jpg in Resources */,
 				14F8D8911BDF26C100B05AA1 /* bb_icon.jpg in Resources */,
+				14190A871BDF66F400B2FFA9 /* 10736444.mp3 in Resources */,
 				14F8D89B1BDF26C100B05AA1 /* kzxd_icon.jpg in Resources */,
 				14F8D8B41BDF26C100B05AA1 /* Musics.plist in Resources */,
 				14F8D8A11BDF26C100B05AA1 /* zxy_icon.jpg in Resources */,
 				14F8D8961BDF26C100B05AA1 /* jay.jpg in Resources */,
 				14F8D7B21BDF18EB00B05AA1 /* LaunchScreen.storyboard in Resources */,
+				14190A831BDF66F400B2FFA9 /* 255319.mp3 in Resources */,
+				14190A881BDF66F400B2FFA9 /* 12309111.mp3 in Resources */,
 				14F8D8921BDF26C100B05AA1 /* dzq.jpg in Resources */,
+				14190A821BDF66F400B2FFA9 /* 235319.mp3 in Resources */,
 				14F8D8A81BDF26C100B05AA1 /* 255319.lrc in Resources */,
 				14F8D8A51BDF26C100B05AA1 /* 12309111.lrc in Resources */,
 				14F8D89F1BDF26C100B05AA1 /* wf_icon.jpg in Resources */,
@@ -591,8 +635,10 @@
 				14F8D89E1BDF26C100B05AA1 /* wf.jpg in Resources */,
 				14F8D8981BDF26C100B05AA1 /* jj@.jpg in Resources */,
 				14F8D8941BDF26C100B05AA1 /* eason.jpg in Resources */,
+				14190A8A1BDF66F400B2FFA9 /* 120125029.mp3 in Resources */,
 				14F8D8A41BDF26C100B05AA1 /* 120125029.lrc in Resources */,
 				14F8D8931BDF26C100B05AA1 /* dzq_icon.jpg in Resources */,
+				14190A891BDF66F400B2FFA9 /* 14945107.mp3 in Resources */,
 				14F8D8A21BDF26C100B05AA1 /* 10405520.lrc in Resources */,
 				14F8D8A61BDF26C100B05AA1 /* 14945107.lrc in Resources */,
 				14F8D8C31BDF515200B05AA1 /* MusicPlayController.xib in Resources */,
@@ -623,6 +669,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14190A781BDF64BB00B2FFA9 /* EVAAudioTool.m in Sources */,
 				14F8D8BA1BDF4BCB00B05AA1 /* UIView+Extension.m in Sources */,
 				14F8D8671BDF254100B05AA1 /* NSObject+MJMember.m in Sources */,
 				14F8D8651BDF254100B05AA1 /* NSObject+MJCoding.m in Sources */,
@@ -633,6 +680,7 @@
 				14F8D85E1BDF254100B05AA1 /* MJConst.m in Sources */,
 				14F8D8631BDF254100B05AA1 /* MJType.m in Sources */,
 				14F8D8B91BDF4BCB00B05AA1 /* UIImage+NJ.m in Sources */,
+				14190A751BDF5A3A00B2FFA9 /* EVAMusicPlayTool.m in Sources */,
 				14F8D83E1BDF249600B05AA1 /* HMMusic.m in Sources */,
 				14F8D83D1BDF249600B05AA1 /* MusicListController.m in Sources */,
 				14F8D8401BDF249600B05AA1 /* main.m in Sources */,

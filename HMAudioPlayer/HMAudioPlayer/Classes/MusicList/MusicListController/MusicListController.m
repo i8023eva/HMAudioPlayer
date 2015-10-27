@@ -12,6 +12,7 @@
 #import "UIImage+NJ.h"
 #import "Colours.h"
 #import "MusicPlayController.h"
+#import "EVAMusicPlayTool.h"
 
 @interface MusicListController ()
 
@@ -71,6 +72,12 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 //    [self performSegueWithIdentifier:@"listToPlay" sender:nil];
+    
+    [EVAMusicPlayTool setPlayingMusic:[EVAMusicPlayTool musicList][indexPath.row]];
+    /**
+     *  考虑传递歌曲信息问题
+     */
+    [self.musicPlayCon show];
     
 }
 

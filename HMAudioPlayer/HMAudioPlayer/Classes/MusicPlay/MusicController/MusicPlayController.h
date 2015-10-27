@@ -10,4 +10,6 @@
 
 @interface MusicPlayController : UIViewController
 
+-(void) show;
+
 @end
