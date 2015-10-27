@@ -103,6 +103,7 @@ static NSMutableDictionary *_players;
         {
             return nil;
         }
+#warning 
         // 允许快进
         player.enableRate = YES;
         player.rate = 3;

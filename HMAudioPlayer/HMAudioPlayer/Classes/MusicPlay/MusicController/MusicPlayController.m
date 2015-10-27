@@ -12,6 +12,9 @@
 #import "EVAMusicPlayTool.h"
 
 @interface MusicPlayController ()
+@property (weak, nonatomic) IBOutlet UILabel *songLabel;
+@property (weak, nonatomic) IBOutlet UILabel *singerLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 
 @end
 
@@ -27,13 +30,32 @@
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     self.view.frame = window.bounds;
     [window addSubview:self.view];
+    
+    self.view.hidden = NO;
+    window.userInteractionEnabled = NO;//禁用交互, 防止用户多次点击, 造成此方法重复执行
+    
     self.view.y = window.height;
     [UIView animateWithDuration:1.5 animations:^{
         self.view.y = 0;
     } completion:^(BOOL finished) {
+        window.userInteractionEnabled = YES;
+        
         //动画执行完, 开始播放音乐
         [EVAAudioTool playMusicWithFilename:[EVAMusicPlayTool musicOfPlaying].filename];
+    }];
+}
+
+- (IBAction)didClickForExit:(UIButton *)sender {
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    window.userInteractionEnabled = NO;
+    
+    [UIView animateWithDuration:1.6 animations:^{
+        self.view.y = window.height;
+    } completion:^(BOOL finished) {
+        //视图隐藏之后系统不会在进行其他操作
+        self.view.hidden = YES;
         
+        window.userInteractionEnabled = YES;
     }];
 }
 

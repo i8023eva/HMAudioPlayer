@@ -16,7 +16,7 @@
 
 @interface MusicListController ()
 
-@property (nonatomic, strong) NSArray *musicListArray;
+//@property (nonatomic, strong) NSArray *musicListArray;//实现了工具类之后可以省略
 
 @property (nonatomic, strong) MusicPlayController *musicPlayCon;
 @end
@@ -34,12 +34,12 @@
 }
 
 #pragma mark - 解析数据
--(NSArray *)musicListArray {
-    if (_musicListArray == nil) {
-        _musicListArray = [HMMusic objectArrayWithFilename:@"Musics.plist"];
-    }
-    return _musicListArray;
-}
+//-(NSArray *)musicListArray {
+//    if (_musicListArray == nil) {
+//        _musicListArray = [HMMusic objectArrayWithFilename:@"Musics.plist"];
+//    }
+//    return _musicListArray;
+//}
 
 -(MusicPlayController *)musicPlayCon {
     if (_musicPlayCon == nil) {
@@ -50,7 +50,8 @@
 
 #pragma mark - TableView Datasource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.musicListArray.count;
+//    return self.musicListArray.count;
+    return [EVAMusicPlayTool musicList].count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -60,7 +61,8 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
-    HMMusic *model = self.musicListArray[indexPath.row];
+//    HMMusic *model = self.musicListArray[indexPath.row];
+    HMMusic *model = [EVAMusicPlayTool musicList][indexPath.row];
     cell.textLabel.text = model.name;
 //    cell.imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:model.singerIcon ofType:nil]];
     cell.imageView.image = [UIImage circleImageWithName:model.singerIcon borderWidth:4.0 borderColor:[UIColor skyBlueColor]];
