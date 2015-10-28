@@ -1,0 +1,2 @@
+platform :ios
+pod 'ASIHTTPRequest'

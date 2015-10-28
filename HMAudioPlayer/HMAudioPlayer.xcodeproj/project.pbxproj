@@ -70,6 +70,7 @@
 		14F8D8BA1BDF4BCB00B05AA1 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F8D8B81BDF4BCB00B05AA1 /* UIView+Extension.m */; settings = {ASSET_TAGS = (); }; };
 		14F8D8C11BDF513600B05AA1 /* MusicPlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F8D8C01BDF513600B05AA1 /* MusicPlayController.m */; settings = {ASSET_TAGS = (); }; };
 		14F8D8C31BDF515200B05AA1 /* MusicPlayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14F8D8C21BDF515200B05AA1 /* MusicPlayController.xib */; settings = {ASSET_TAGS = (); }; };
+		AEDB43358F89196243A8F99D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 470CD11C480BDDC0AB5E5CB1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +181,9 @@
 		14F8D8BF1BDF513600B05AA1 /* MusicPlayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicPlayController.h; sourceTree = "<group>"; };
 		14F8D8C01BDF513600B05AA1 /* MusicPlayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicPlayController.m; sourceTree = "<group>"; };
 		14F8D8C21BDF515200B05AA1 /* MusicPlayController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicPlayController.xib; sourceTree = "<group>"; };
+		470CD11C480BDDC0AB5E5CB1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EE9DCA59C90DD887DF7556E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FA14CDAA21870BC19884BF49 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEDB43358F89196243A8F99D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +219,8 @@
 				14F8D7BB1BDF18EB00B05AA1 /* HMAudioPlayerTests */,
 				14F8D7C61BDF18EB00B05AA1 /* HMAudioPlayerUITests */,
 				14F8D7A01BDF18EB00B05AA1 /* Products */,
+				A4B2EFAFE5312E30F5237859 /* Pods */,
+				6E0238E6DE42ACA0EA8B6BF5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -495,6 +502,23 @@
 			path = MusicView;
 			sourceTree = "<group>";
 		};
+		6E0238E6DE42ACA0EA8B6BF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				470CD11C480BDDC0AB5E5CB1 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A4B2EFAFE5312E30F5237859 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FA14CDAA21870BC19884BF49 /* Pods.debug.xcconfig */,
+				4EE9DCA59C90DD887DF7556E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -502,9 +526,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14F8D7CC1BDF18EB00B05AA1 /* Build configuration list for PBXNativeTarget "HMAudioPlayer" */;
 			buildPhases = (
+				8DE0BCE7BA067859D529F72D /* Check Pods Manifest.lock */,
 				14F8D79B1BDF18EB00B05AA1 /* Sources */,
 				14F8D79C1BDF18EB00B05AA1 /* Frameworks */,
 				14F8D79D1BDF18EB00B05AA1 /* Resources */,
+				BCC49E30D30395217397A685 /* Embed Pods Frameworks */,
+				C60524568E33D6B304DEBDA3 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -660,6 +687,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8DE0BCE7BA067859D529F72D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BCC49E30D30395217397A685 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C60524568E33D6B304DEBDA3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		14F8D79B1BDF18EB00B05AA1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -814,6 +889,7 @@
 		};
 		14F8D7CD1BDF18EB00B05AA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA14CDAA21870BC19884BF49 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -826,6 +902,7 @@
 		};
 		14F8D7CE1BDF18EB00B05AA1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EE9DCA59C90DD887DF7556E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
